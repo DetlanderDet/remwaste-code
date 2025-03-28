@@ -1,58 +1,64 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# 🟨 remwaste-code – Skip Selector App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, responsive skip size selector for **RemWaste**, built with **Vite**, **React**, and **Tailwind CSS**. It supports dynamic data from Payload CMS and provides a clean user experience for selecting the right skip.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+-   Dynamic skip card rendering
+-   Clean UI with background image integration
+-   Price display with VAT support
+-   Fully responsive layout
+-   Sticky footer with selection summary
+-   Dynamic step progress indicator
+-   Organized file and component structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## File Structure
+
+---
+
+## Our Approach
+
+We designed `remwaste-code` with **clarity, responsiveness**, and a **modern user experience** in mind. Here's how we approached the build:
+
+### Card Redesign
+
+-   Cards include a **top image preview section** styled with `object-cover` and rounded corners.
+-   On hover, cards **scale slightly** to enhance interactivity.
+-   Selected cards are highlighted with a **yellow border and button**, using `#FAC415` to visually connect with the image tone.
+
+### Organized Code Structure
+
+-   Stepper data is stored in `stepsData.ts` for scalable step rendering.
+-   API call logic is separated into `api.ts`, making it reusable and clean.
+-   We’re using `mockData.ts` for skip data, but it’s built to support Payload CMS.
+
+### Selection Logic
+
+-   Skip selection is tracked with `selectedSkipId`.
+-   Selecting a card visually updates the card UI and triggers the footer.
+-   **Back** button clears the selection.
+-   **Continue** button is styled but currently non-functional (ready for routing or next steps).
+
+### Footer Behavior
+
+-   The sticky footer appears **only when a card is selected**.
+-   It displays a short summary and navigation buttons.
+-   Footer buttons are animated and responsive for better UX.
+
+---
+
+## Stepper
+
+The step progress indicator is dynamically rendered from `stepsData.ts`:
+
+```ts
+export const steps = [
+  { icon: MapPin, label: "Postcode", active: true },
+  { icon: Trash, label: "Waste Type", active: true },
+  ...
+];
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-=======
-# remwaste-code
->>>>>>> 0fbbe53188229ad2ab8941564ce57a0985baef39
